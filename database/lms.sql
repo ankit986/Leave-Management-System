@@ -34,12 +34,11 @@ CREATE TABLE IF NOT EXISTS `leave_requests` (
   `days_requested` int(2) NOT NULL,
   `date_applied` date NOT NULL,
   `leave_status` varchar(30) NOT NULL DEFAULT 'Pending',
+
   PRIMARY KEY (`staff_id`,`start_date`,`end_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `leave_requests`
---
+@@ -43,18 +44,7 @@ CREATE TABLE IF NOT EXISTS `leave_requests` (
 
 INSERT INTO `leave_requests` (`staff_id`, `leave_type`, `start_date`, `end_date`, `days_requested`, `date_applied`, `leave_status`) VALUES
 ('anuj@live.in', 'Weekend Leave', '2015-04-03', '2015-04-04', 2, '2015-04-23', 'Approved'),
@@ -55,13 +54,14 @@ INSERT INTO `leave_requests` (`staff_id`, `leave_type`, `start_date`, `end_date`
 ('jayantgope@yahoo.in', 'Weekend Leave', '2015-04-24', '2015-04-24', 1, '2015-04-23', 'Pending'),
 ('jayantgope@yahoo.in', 'Weekend Leave', '2015-04-24', '2015-05-08', 15, '2015-04-23', 'Pending'),
 ('jayantgope@yahoo.in', 'Casual Leave', '2015-08-08', '2015-08-30', 23, '2015-04-23', 'Pending');
+('jayantgope@yahoo.in', 'Weekend Leave', '2015-04-03', '2015-04-03', 1, '2015-04-23', 'Pending');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `leave_statistics`
 --
-
+    
 CREATE TABLE IF NOT EXISTS `leave_statistics` (
   `staff_id` varchar(50) NOT NULL,
   `leave_type` varchar(50) NOT NULL,
@@ -69,11 +69,11 @@ CREATE TABLE IF NOT EXISTS `leave_statistics` (
   `leaves_taken` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`staff_id`,`leave_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+    
 --
 -- Dumping data for table `leave_statistics`
 --
-
+    
 INSERT INTO `leave_statistics` (`staff_id`, `leave_type`, `maximum_leaves`, `leaves_taken`) VALUES
 ('anuj@live.in', 'Casual Leave', 45, 0),
 ('anuj@live.in', 'New', 10, 0),
@@ -102,47 +102,47 @@ INSERT INTO `leave_statistics` (`staff_id`, `leave_type`, `maximum_leaves`, `lea
 ('virendra@apiit.edu.in', 'New', 10, 0),
 ('virendra@apiit.edu.in', 'Newest', 15, 0),
 ('virendra@apiit.edu.in', 'Weekend Leave', 10, 0);
-
+    
 -- --------------------------------------------------------
-
+    
 --
 -- Table structure for table `leave_types`
 --
-
+    
 CREATE TABLE IF NOT EXISTS `leave_types` (
   `leave_type` varchar(50) NOT NULL,
   `no_of_days` int(2) NOT NULL,
   PRIMARY KEY (`leave_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+    
 --
 -- Dumping data for table `leave_types`
 --
-
+    
 INSERT INTO `leave_types` (`leave_type`, `no_of_days`) VALUES
 ('Casual Leave', 45),
 ('New', 10),
 ('Newest', 15),
 ('Sick Leave', 10),
 ('Weekend Leave', 10);
-
+    
 -- --------------------------------------------------------
-
+    
 --
 -- Table structure for table `login`
 --
-
+    
 CREATE TABLE IF NOT EXISTS `login` (
   `user_id` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `user_type` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`,`user_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+    
 --
 -- Dumping data for table `login`
 --
-
+    
 INSERT INTO `login` (`user_id`, `password`, `user_type`) VALUES
 ('admin', 'pass', 'admin'),
 ('anuj@live.in', 'anuj', 'Staff'),
@@ -151,13 +151,13 @@ INSERT INTO `login` (`user_id`, `password`, `user_type`) VALUES
 ('rahul@gmail.com', 'r', 'Staff'),
 ('sachin@ms.com', 's', 'Staff'),
 ('virendra@apiit.edu.in', 'vk', 'PC');
-
+    
 -- --------------------------------------------------------
-
+    
 --
 -- Table structure for table `staff`
 --
-
+    
 CREATE TABLE IF NOT EXISTS `staff` (
   `staff_id` varchar(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -165,11 +165,11 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `last_name` varchar(50) NOT NULL,
   PRIMARY KEY (`staff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+    
 --
 -- Dumping data for table `staff`
 --
-
+    
 INSERT INTO `staff` (`staff_id`, `first_name`, `middle_name`, `last_name`) VALUES
 ('anuj@live.in', 'Anuj', 'Kumar', 'Parashar'),
 ('dhoni@ms.com', 'Mahendra', 'Singh', 'Dhoni'),
@@ -177,7 +177,7 @@ INSERT INTO `staff` (`staff_id`, `first_name`, `middle_name`, `last_name`) VALUE
 ('rahul@gmail.com', 'Rahul', '', 'Sharma'),
 ('sachin@ms.com', 'Sachin', '', 'Tend'),
 ('virendra@apiit.edu.in', 'Virendra', '', 'Srivastava');
-
+    
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
